@@ -20,8 +20,8 @@ def write_files(output_file,folder,name):
         output[j].write(outputStream)
         j = j + 1
 
-book1=read_book("korban.pdf")
-book2=read_book("har_habait.pdf")
+book1=read_book("")
+book2=read_book("")
 book1_split=daily_learn.split_book(book1,2,5)
 book2_split=daily_learn.split_book(book2,1,5)
 my_file = daily_learn.merge_books([book1_split,book2_split])
