@@ -16,13 +16,15 @@ def write_files(output_file,folder,name):
         for day in wok:
             for page in day:
                 output[j].addPage(page)
-        outputStream = file(folder + "\\" + str(j) + name, "wb")
+        outputStream = file(folder + "\\week_" + str(j) + "_" + name, "wb")
         output[j].write(outputStream)
         j = j + 1
 
-book1=read_book("")
-book2=read_book("")
-book1_split=daily_learn.split_book(book1,2,5)
-book2_split=daily_learn.split_book(book2,1,5)
-my_file = daily_learn.merge_books([book1_split,book2_split])
-write_files(my_file,'split','torah.pdf')
+book1=read_book("sample1.pdf")
+book2=read_book("sample2.pdf")
+book3=read_book("sample3.pdf")
+my_book1=daily_learn.Mybook(book1,2,5,17)
+my_book2=daily_learn.Mybook(book2,1,5,0,2)
+my_book3=daily_learn.Mybook(book3,2,7,205)
+my_file = daily_learn.books_into_weeks([my_book1,my_book2,my_book3],4)
+write_files(my_file,'splitted','my_learning.pdf')
